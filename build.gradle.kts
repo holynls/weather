@@ -2,14 +2,15 @@ plugins {
     jacoco
     kotlin("jvm")
     id("org.jetbrains.kotlin.kapt")
-    id("io.gitlab.arturbosch.detekt")
-    id("org.jlleitschuh.gradle.ktlint")
     id("org.jetbrains.kotlin.plugin.jpa")
     id("org.springframework.boot")
     id("org.jetbrains.kotlin.plugin.spring")
 }
 
 tasks {
+    bootJar {
+        enabled = false
+    }
 }
 
 allprojects {
@@ -45,8 +46,6 @@ subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.kapt")
-    apply(plugin = "io.gitlab.arturbosch.detekt")
-    apply(plugin = "org.jlleitschuh.gradle.ktlint")
     apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")

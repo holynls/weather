@@ -6,10 +6,7 @@ import org.springframework.cache.annotation.EnableCaching
 import java.util.*
 import javax.annotation.PostConstruct
 
-@SpringBootApplication(
-//    exclude = [DataSourceAutoConfiguration::class],
-)
-//@EnableTransactionManagement
+@SpringBootApplication
 @EnableCaching
 class App {
 

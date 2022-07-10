@@ -1,4 +1,9 @@
-api:
-  weather-bot:
-    api-key: CMRJW4WT7V3QA5AOIGPBC
-    url: https://thirdparty-weather-api-v2.droom.workers.dev
+---
+spring:
+  profiles:
+    active: local
+
+---
+spring:
+  profiles:
+    active: prod
