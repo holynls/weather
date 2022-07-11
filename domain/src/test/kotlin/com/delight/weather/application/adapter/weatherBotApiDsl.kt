@@ -60,7 +60,7 @@ data class ForecastHourlyExternalApiResponseDtoBuilder(
             else -> LocalDateTime.now().plusHours(hoursDiff)
         }
 
-        return ForecastHourlyExternalApiResponseDto(LocalDateTime.now(), code, min_temp, max_temp, rain)
+        return ForecastHourlyExternalApiResponseDto(date, code, min_temp, max_temp, rain)
     }
 }
 

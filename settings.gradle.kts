@@ -1,7 +1,7 @@
 pluginManagement {
     val kotlinVersion: String by settings
     val springBootVersion: String by settings
-
+    val jibPluginVersion: String by settings
     val kotlinJvmPluginVersion: String by settings
     val ktLintPluginVersion: String by settings
     val detektPluginVersion: String by settings
@@ -18,6 +18,7 @@ pluginManagement {
     plugins {
         jacoco
         kotlin("jvm") version kotlinJvmPluginVersion
+        id("com.google.cloud.tools.jib") version jibPluginVersion
         id("org.jetbrains.kotlin.kapt") version kotlinVersion
         id("io.gitlab.arturbosch.detekt") version detektPluginVersion
         id("org.jlleitschuh.gradle.ktlint") version ktLintPluginVersion
@@ -27,7 +28,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "weatherAPI"
+rootProject.name = "weather-api"
 
 include(":domain")
 include(":interfaces")

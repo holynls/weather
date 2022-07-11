@@ -1,6 +1,7 @@
 plugins {
     jacoco
     kotlin("jvm")
+    id("com.google.cloud.tools.jib")
     id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.jpa")
     id("org.springframework.boot")
@@ -14,7 +15,7 @@ tasks {
 }
 
 allprojects {
-    group = "kr.doctornow"
+    group = "com.droom"
     version = "1.0.0"
 
     repositories {
@@ -44,6 +45,7 @@ subprojects {
 
     apply(plugin = "jacoco")
     apply(plugin = "kotlin")
+    apply(plugin = "com.google.cloud.tools.jib")
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.kapt")
     apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
