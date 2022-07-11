@@ -46,7 +46,8 @@ class WeatherServiceAdapter(
             }
         }
 
-        if (current == null) throw IllegalStateException("날씨 정보를 받아오지 못했습니다.")
+        if (current == null || forecastList.isEmpty() || historicalList.isEmpty())
+            throw IllegalStateException("날씨 정보를 받아오지 못했습니다.")
 
         return WeatherSummaryDto(
             decideGreeting(current!!),
@@ -73,10 +74,10 @@ class WeatherServiceAdapter(
         val temperatureDiff = abs(current.temp - lastDateTemp)
 
         val temperatureDifference = when {
-            current.temp >= 15 && current.temp < lastDateTemp -> "어제보다 ${temperatureDiff}도 덜 춥습니다."
+            current.temp >= 15 && current.temp < lastDateTemp -> "어제보다 ${temperatureDiff}도 덜 덥습니다."
             current.temp < 15 && current.temp < lastDateTemp -> "어제보다 ${temperatureDiff}도 더 춥습니다."
             current.temp >= 15 && current.temp > lastDateTemp -> "어제보다 ${temperatureDiff}도 더 덥습니다."
-            current.temp < 15 && current.temp > lastDateTemp -> "어제보다 ${temperatureDiff}도 덜 덥습니다."
+            current.temp < 15 && current.temp > lastDateTemp -> "어제보다 ${temperatureDiff}도 덜 춥습니다."
             current.temp >= 15 && current.temp == lastDateTemp -> "어제와 비슷하게 덥습니다."
             current.temp < 15 && current.temp == lastDateTemp -> "어제와 비슷하게 춥습니다."
             else -> "날씨 정보를 알 수 없습니다."

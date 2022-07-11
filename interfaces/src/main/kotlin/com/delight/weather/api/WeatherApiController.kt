@@ -34,5 +34,10 @@ class WeatherApiController(
     fun getSummary(
         @RequestParam lat: Float,
         @RequestParam lon: Float
-    ): ResponseEntity<WeatherSummaryDto> = ResponseEntity.ok(weatherService.getSummary(lat, lon))
+    ): ResponseEntity<WeatherSummaryDto> =
+        when {
+            lat < -90 || lat >= 90 || lon < -180 || lon >= 180 -> ResponseEntity.badRequest().build()
+            else -> ResponseEntity.ok(weatherService.getSummary(lat, lon))
+        }
+
 }
