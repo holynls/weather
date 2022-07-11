@@ -1,13 +1,14 @@
 package com.delight.weather
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition
+import io.swagger.v3.oas.annotations.servers.Server
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.cache.annotation.EnableCaching
 import java.util.*
 import javax.annotation.PostConstruct
 
 @SpringBootApplication
-@EnableCaching
+@OpenAPIDefinition(servers = [Server(url = "/")])
 class App {
 
     @PostConstruct
