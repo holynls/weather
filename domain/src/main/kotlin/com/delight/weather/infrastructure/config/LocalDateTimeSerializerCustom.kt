@@ -9,6 +9,6 @@ import java.time.ZoneId
 class LocalDateTimeSerializerCustom : JsonSerializer<LocalDateTime>() {
 
     override fun serialize(value: LocalDateTime, gen: JsonGenerator, serializers: SerializerProvider?) {
-        gen.writeNumber(value.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli())
+        gen.writeNumber(value.atZone(ZoneId.systemDefault()).toInstant().epochSecond)
     }
 }

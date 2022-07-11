@@ -1,7 +1,7 @@
 package com.delight.weather.api
 
-import com.delight.weather.domain.weatherbot.WeatherService
-import com.delight.weather.domain.weatherbot.dto.WeatherSummaryDto
+import com.delight.weather.domain.weather.WeatherService
+import com.delight.weather.domain.weather.dto.WeatherSummaryDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema

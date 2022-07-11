@@ -1,6 +1,6 @@
-package com.delight.weather.domain.weatherbot
+package com.delight.weather.domain.weather
 
-import com.delight.weather.domain.weatherbot.dto.WeatherSummaryDto
+import com.delight.weather.domain.weather.dto.WeatherSummaryDto
 
 interface WeatherService {
 

@@ -1,4 +1,4 @@
-package com.delight.weather.domain.weatherbot.dto
+package com.delight.weather.domain.weather.dto
 
 import com.delight.weather.infrastructure.externalapi.weatherbot.dto.HistoricalHourlyExternalApiResponseDto
 import java.time.LocalDateTime

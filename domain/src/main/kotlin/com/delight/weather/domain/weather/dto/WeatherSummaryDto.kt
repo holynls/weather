@@ -1,4 +1,4 @@
-package com.delight.weather.domain.weatherbot.dto
+package com.delight.weather.domain.weather.dto
 
 data class WeatherSummaryDto(
     val greeting: String,
