@@ -1,6 +1,9 @@
 # DelightRoom Backend Take Home Assignment
 
 ## Usage
+### Requirements
+> openJDK 17
+
 ### Docker Local Image Build
 ``` shell
 ./gradlew interfaces:jibDockerBuild
