@@ -1,5 +1,6 @@
 package com.delight.weather.application.adapter
 
+import com.delight.weather.infrastructure.exceptions.ExternalApiException
 import com.delight.weather.infrastructure.externalapi.weatherbot.WeatherBotApiService
 import com.delight.weather.infrastructure.externalapi.weatherbot.dto.CurrentExternalApiResponseDto
 import com.delight.weather.infrastructure.externalapi.weatherbot.dto.ForecastHourlyExternalApiResponseDto
@@ -9,10 +10,12 @@ import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.mockk
+import okhttp3.ResponseBody
 import org.amshove.kluent.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.mockito.kotlin.any
 import retrofit2.Response
 
@@ -27,6 +30,17 @@ class WeatherServiceAdapterTest {
     fun beforeEach() {
         clearAllMocks()
         MockKAnnotations.init(this)
+    }
+
+    @Test
+    fun `외부 api 호출 에러시 ExternalApiException throw`() {
+        val current = currentExternalApiResponseDto { }
+
+        coEvery { weatherBotApiService.current(any(), any(), any()) } returns Response.success(current)
+        coEvery { weatherBotApiService.forecastHourly(any(), any(), any(), any()) } returns
+                Response.error(401, ResponseBody.create(null, "api 키가 다름"))
+
+        assertThrows<ExternalApiException> { service.getSummary(any(), any()) }
     }
 
     @Nested
