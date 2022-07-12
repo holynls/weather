@@ -42,4 +42,6 @@ dependencies {
 
     implementation("org.springdoc:springdoc-openapi-ui:$springDocVersion")
     implementation("org.springdoc:springdoc-openapi-kotlin:$springDocVersion")
+
+    implementation("io.github.resilience4j:resilience4j-timelimiter:1.7.0")
 }
